@@ -13,17 +13,13 @@ headerz = {
     'Upgrade-Insecure-Requests': '1',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36'
                 }
-
 slack = Slacker(slackapikey)
 print "Monitor Started..."
+
 while True:
 
     req = requests.Session()
-
-
-
     url = 'http://www.adidas.com/on/demandware.static/-/Sites-CustomerFileStore/default/adidas-US/en_US/sitemaps/product/adidas-US-en-us-product.xml'
-
 
     response = req.get(url, headers=headerz)
     ya = response.text
@@ -36,7 +32,6 @@ while True:
             f.write(option.text + "\n")
         f.close()
 
-
     yah = open('xmlparsing2.txt', 'r') 
     bruh = yah.read()
         
@@ -45,8 +40,6 @@ while True:
     
     if answr == bruh:
         print '--No New Changes--'
-
-
 
     elif answr != bruh: 
         lines1 = answr.strip().splitlines()
@@ -70,7 +63,6 @@ while True:
                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36'
                 }
                 
-
                 aco = req.get(line, headers=headers)
                 soup = BeautifulSoup(aco.text, 'lxml')
                 pidstep1 = line.split('/')
@@ -82,15 +74,6 @@ while True:
                 print line    
                 slack.chat.post_message('#adimon', "ADDED:\n" + titleofproduct + "  -  " + pid + "\nLink: \n" + line + "\n -------------------------------------------") 
                     
-                
-                
-
-
-
-
-
-
-        
         ans = open('xmlparsing.txt', 'w')
         for option in token.find_all('loc'):
             ans.write(option.text + "\n")
