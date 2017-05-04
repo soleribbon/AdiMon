@@ -98,4 +98,4 @@ while True:
     
     yah.close()
     answ.close()
-    time.sleep(1)
+    time.sleep(10)
