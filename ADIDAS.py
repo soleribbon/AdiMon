@@ -5,7 +5,7 @@ import difflib
 from difflib import *
 from slacker import Slacker
 
-slackapikey = 'xoxb-168765462614-AF2fvGqqzsTorz0BTvzXaEYu'
+slackapikey = ''
 
 headerz = {
     'Connection': 'keep-alive',
